@@ -22,8 +22,8 @@ jobs:
         run: |
           pwd
           echo "The repository ${{ github.repository }} contains the following files"
-          tree -A -a ~/
-          ls /
+          tree -A -n -a ~/
+          ls --color=never /
           
     
     
