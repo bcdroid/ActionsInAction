@@ -28,7 +28,7 @@ jobs:
         run: ls --color=never /mnt
 
       - name: Cat file in mnt
-        run: cat DATALOSS_WARNING_README.txt
+        run: cat /mnt/DATALOSS_WARNING_README.txt
 
       - name: List files in home
         run: ls --color=never -a ~/
