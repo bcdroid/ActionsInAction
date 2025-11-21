@@ -17,13 +17,20 @@ jobs:
 
       - name: Df
         run: df -h -x tmpfs
-    
+
+      - name: Pwd
+        run: pwd
+
+      - name: List files in root
+        run: ls --color=never /
+
+      - name: List files in home
+        run: ls --color=never -a ~/
+
       - name: List files in the repository
         run: |
-          pwd
           echo "The repository ${{ github.repository }} contains the following files"
-          tree -A -n -a ~/
-          ls --color=never /
+          tree -A -n -a .
           
     
     
