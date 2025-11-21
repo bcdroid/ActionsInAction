@@ -15,9 +15,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6.0.0
 
-      - name: List files inthe repository
+      - name: Df
+        run: df -h
+    
+      - name: List files in the repository
         run: |
+          pwd
           echo "The repository ${{ github.repository }} contains the following files"
-          tree
+          tree -A -a ~/
+          ls /
+          
     
     
