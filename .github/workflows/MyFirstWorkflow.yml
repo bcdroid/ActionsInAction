@@ -24,6 +24,9 @@ jobs:
       - name: List files in root
         run: ls --color=never /
 
+      - name: List files in mnt
+        run: ls --color=never /mnt
+
       - name: List files in home
         run: ls --color=never -a ~/
 
