@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v6.0.0
 
       - name: Df
-        run: df -h
+        run: df -h -x tmpfs
     
       - name: List files in the repository
         run: |
