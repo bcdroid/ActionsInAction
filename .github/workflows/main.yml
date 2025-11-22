@@ -14,10 +14,8 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Set up Rust toolchain
-        uses: actions/setup-rust@v1
-        with:
-          rust-version: stable
+      - name: Set up Rust (stable)
+        uses: dtolnay/rust-toolchain@stable
 
       - name: Install tokei via cargo
         run: |
