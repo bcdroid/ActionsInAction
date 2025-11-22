@@ -1,0 +1,25 @@
+name: Test Inputs
+
+on:
+  workflow_dispatch:
+    inputs:
+      env:
+        description: "Which environment?"
+        default: "staging"
+        type: choice
+        options:
+          - staging
+          - production
+      version:
+        description: "Version to deploy"
+        required: true
+        type: string
+
+jobs:
+  test-inputs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Show the version chosen
+        run: echo "Deploying version: ${{ github.event.inputs.version }}"
+        
