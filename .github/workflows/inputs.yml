@@ -21,6 +21,10 @@ jobs:
 
     steps:
       - name: Show the version chosen
-        run: echo "Deploying version: ${{ github.event.inputs.version }}"
+        run: |
+          echo "Deploying version: ${{ github.event.inputs.version }}"
+
+      #  - name: Show the version chosen
+      #    run: echo "Deploying version: ${{ github.event.inputs.version }}"
 
         
