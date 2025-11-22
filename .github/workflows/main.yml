@@ -5,18 +5,6 @@ on:
   #   branches: [ main ]
   # pull_request:
   workflow_dispatch:
-    inputs:
-      env:
-        description: "Which environment?"
-        default: "staging"
-        type: choice
-        options:
-          - staging
-          - production
-      version:
-        description: "Version to deploy"
-        required: true
-        type: string
 
 jobs:
   run-tokei:
