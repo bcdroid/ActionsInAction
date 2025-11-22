@@ -1,0 +1,38 @@
+name: Tokei Code Stats (Cargo Install)
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  run-tokei:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Rust toolchain
+        uses: actions/setup-rust@v1
+        with:
+          rust-version: stable
+
+      - name: Install tokei via cargo
+        run: |
+          cargo install tokei
+          echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+          tokei --version
+
+      - name: Run tokei
+        run: |
+          mkdir -p reports
+          tokei . --output json > reports/tokei.json
+          tokei .
+
+      - name: Upload tokei report
+        uses: actions/upload-artifact@v4
+        with:
+          name: tokei-report
+          path: reports/tokei.json
